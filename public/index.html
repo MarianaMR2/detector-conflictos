@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Conflictos Académicos</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="login-container">
+
+    <div class="left-panel">
+        <h1>AcademicFlow</h1>
+
+        <p>
+            Organiza tus actividades, detecta conflictos académicos
+            y mejora tu rendimiento universitario.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <i class='bx bx-calendar'></i>
+                <span>Calendario inteligente</span>
+            </div>
+
+            <div class="feature">
+                <i class='bx bx-error-circle'></i>
+                <span>Detección de conflictos</span>
+            </div>
+
+            <div class="feature">
+                <i class='bx bx-bar-chart-alt'></i>
+                <span>Alertas académicas</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-panel">
+
+        <h2>Iniciar Sesión</h2>
+
+        <form id="loginForm">
+
+            <div class="input-box">
+                <i class='bx bx-envelope'></i>
+                <input type="email" id="email" placeholder="Correo" required>
+            </div>
+
+            <div class="input-box">
+                <i class='bx bx-lock-alt'></i>
+                <input type="password" id="password" placeholder="Contraseña" required>
+            </div>
+
+
+            <button type="submit">
+                Ingresar
+            </button>
+            <a href="/register.html">¿No tienes cuenta? Regístrate</a>
+        </form>
+
+    </div>
+
+</div>
+
+<script src="login.js"></script>
+
+</body>
+</html>

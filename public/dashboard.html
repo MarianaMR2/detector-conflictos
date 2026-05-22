@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Académico</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            AcademicFlow
+        </div>
+
+        <nav>
+
+            <a onclick="mostrarSeccion('formulario')">
+                <i class='bx bx-home'></i>
+                Inicio
+            </a>
+
+            <a onclick="mostrarSeccion('actividades')">
+                <i class='bx bx-calendar'></i>
+                Actividades
+            </a>
+
+            <a onclick="mostrarSeccion('calendario')">
+                <i class='bx bx-calendar'></i>
+                Calendario
+            </a>
+
+            <a onclick="mostrarSeccion('alertas')">
+                <i class='bx bx-bell'></i>
+                Alertas
+            </a>
+
+            <a onclick="mostrarSeccion('resumen')">
+                <i class='bx bx-bar-chart'></i>
+                Resumen
+            </a>
+
+            <a onclick="mostrarSeccion('grafica')">
+                <i class='bx bx-pie-chart'></i>
+                Estadísticas
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <header>
+
+            <div>
+                <h1 id="saludoUsuario">Hola</h1>
+                <p>Bienvenida a tu sistema académico inteligente</p>
+            </div>
+
+            <div class="profile">
+                <i class='bx bx-user-circle'></i>
+                <button id="logoutBtn">Salir</button>
+            </div>
+
+        </header>
+
+        <!-- FORMULARIO -->
+        <section id="formulario" class="form-section">
+
+            <div class="section-title">Nueva Actividad</div>
+
+            <form id="actividadForm">
+
+                <input type="text" id="titulo" placeholder="Título" required>
+                <input type="text" id="materia" placeholder="Materia" required>
+
+                <select id="tipo">
+                    <option value="Tarea">Tarea</option>
+                    <option value="Parcial">Parcial</option>
+                    <option value="Proyecto">Proyecto</option>
+                </select>
+
+                <input type="date" id="fecha" required>
+                <input type="time" id="hora">
+
+                <select id="dificultad">
+                    <option value="1">Muy baja</option>
+                    <option value="2">Baja</option>
+                    <option value="3">Media</option>
+                    <option value="4">Alta</option>
+                    <option value="5">Muy alta</option>
+                </select>
+
+                <button type="submit">Crear actividad</button>
+
+            </form>
+
+        </section>
+
+        <!-- ACTIVIDADES -->
+        <section id="actividades" class="activities">
+
+            <div class="section-title">Actividades recientes</div>
+
+            <table>
+
+                <thead>
+                <tr>
+                    <th>Materia</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                </tr>
+                </thead>
+
+                <tbody id="tablaActividades"></tbody>
+
+            </table>
+
+        </section>
+
+        <!-- ALERTAS -->
+        <section id="alertas" class="alerts-section">
+
+            <div class="alerts-header">
+                <h2>Alertas inteligentes</h2>
+                <button id="leerTodasBtn">Marcar todas como leídas</button>
+            </div>
+
+            <div id="contenedorAlertas">
+                <p>Cargando alertas...</p>
+            </div>
+
+        </section>
+
+        <!-- RESUMEN -->
+        <section id="resumen" class="summary-section">
+
+            <div class="summary-card">
+
+                <h3>Resumen semanal</h3>
+
+                <div id="resumenSemana">Cargando resumen...</div>
+
+            </div>
+
+        </section>
+
+        <!-- GRAFICA -->
+        <section id="grafica" class="chart-section">
+
+            <div class="chart-card">
+
+                <h2>Estadísticas académicas</h2>
+
+                <canvas id="graficaActividades"></canvas>
+
+            </div>
+
+        </section>
+
+        <!-- CALENDARIO -->
+        <section id="calendario" class="calendar-section">
+
+            <div class="calendar-header">
+                <h2>Calendario académico</h2>
+            </div>
+
+            <div id="calendarGrid"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MODAL -->
+<div id="modalConflicto" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Conflicto detectado</h2>
+
+        <p id="mensajeConflicto"></p>
+
+        <button id="cerrarModal">Entendido</button>
+
+    </div>
+
+</div>
+
+<div id="toastContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+
+</body>
+</html>
